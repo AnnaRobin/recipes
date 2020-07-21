@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import fr.formation.recipes.dtos.IngredientCreateDto;
 import fr.formation.recipes.dtos.RecipeCreateDto;
-import fr.formation.recipes.dtos.StepDto;
+import fr.formation.recipes.dtos.StepCreateDto;
 import fr.formation.recipes.entities.Ingredient;
 import fr.formation.recipes.entities.Recipe;
 import fr.formation.recipes.entities.Step;
@@ -43,7 +43,7 @@ public class RecipeServiceImpl implements RecipeService {
 	recipe.setIngredients(ingredients);
 	// Steps
 	List<Step> steps = new ArrayList<>();
-	for (StepDto stepDto : dto.getSteps()) {
+	for (StepCreateDto stepDto : dto.getSteps()) {
 	    Step step = new Step();
 	    step.setText(stepDto.getText());
 	    step.setStepOrder(stepDto.getStepOrder());

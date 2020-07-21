@@ -1,11 +1,11 @@
 package fr.formation.recipes.dtos;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class IngredientCreateDto {
 
-    @NotEmpty
+    @NotBlank
     @Size(min = 1, max = 255)
     private String text;
 

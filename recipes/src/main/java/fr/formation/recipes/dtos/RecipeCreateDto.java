@@ -15,7 +15,7 @@ import fr.formation.recipes.validation.UniqueRecipe;
 public class RecipeCreateDto {
 
     @NotBlank
-    @Size(min = 5, max = 255)
+    @Size(min = 3, max = 255)
     @UniqueRecipe
     private String name;
 
@@ -34,7 +34,7 @@ public class RecipeCreateDto {
     @NotNull
     private Difficulty difficulty;
 
-    // @NotBlank
+    @NotBlank
     @Size(min = 7, max = 2500)
     private String imageUrl;
 
@@ -45,7 +45,7 @@ public class RecipeCreateDto {
 
     @NotNull
     @Size(min = 1, max = 20)
-    private List<@Valid StepDto> steps;
+    private List<@Valid StepCreateDto> steps;
 
     public RecipeCreateDto() {
 	//
@@ -107,11 +107,11 @@ public class RecipeCreateDto {
 	this.ingredients = ingredients;
     }
 
-    public List<StepDto> getSteps() {
+    public List<StepCreateDto> getSteps() {
 	return steps;
     }
 
-    public void setSteps(List<StepDto> steps) {
+    public void setSteps(List<StepCreateDto> steps) {
 	this.steps = steps;
     }
 }
