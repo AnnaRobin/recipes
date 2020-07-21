@@ -10,13 +10,15 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import fr.formation.recipes.Difficulty;
+import fr.formation.recipes.validation.NotSameTimes;
 import fr.formation.recipes.validation.UniqueRecipe;
 
+@NotSameTimes
 public class RecipeCreateDto {
 
-    @NotBlank
-    @Size(min = 3, max = 255)
     @UniqueRecipe
+    @Size(min = 3, max = 255)
+    @NotBlank
     private String name;
 
     @Min(1)
@@ -46,6 +48,8 @@ public class RecipeCreateDto {
     @NotNull
     @Size(min = 1, max = 20)
     private List<@Valid StepCreateDto> steps;
+    // @Valid
+    // private StepCreateDto step;
 
     public RecipeCreateDto() {
 	//
