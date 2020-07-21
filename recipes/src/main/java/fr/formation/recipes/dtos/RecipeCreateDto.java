@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import fr.formation.recipes.Difficulty;
+import fr.formation.recipes.validation.IncrementalStepOrders;
 import fr.formation.recipes.validation.NotSameTimes;
 import fr.formation.recipes.validation.UniqueRecipe;
 
@@ -47,6 +48,7 @@ public class RecipeCreateDto {
 
     @NotNull
     @Size(min = 1, max = 20)
+    @IncrementalStepOrders(from = 3)
     private List<@Valid StepCreateDto> steps;
     // @Valid
     // private StepCreateDto step;
