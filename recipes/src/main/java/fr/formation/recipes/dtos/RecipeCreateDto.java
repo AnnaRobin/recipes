@@ -48,7 +48,7 @@ public class RecipeCreateDto {
 
     @NotNull
     @Size(min = 1, max = 20)
-    @IncrementalStepOrders(from = 3)
+    @IncrementalStepOrders
     private List<@Valid StepCreateDto> steps;
     // @Valid
     // private StepCreateDto step;
