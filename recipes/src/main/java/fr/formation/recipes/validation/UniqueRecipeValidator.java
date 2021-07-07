@@ -19,6 +19,9 @@ public class UniqueRecipeValidator
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-	return service.uniqueName(value); // call service
+	if (value == null) {
+	    return true;
+	}
+	return service.uniqueName(value);
     }
 }

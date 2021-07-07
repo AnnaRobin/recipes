@@ -8,12 +8,12 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-@Target(ElementType.FIELD)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = UniqueRecipeValidator.class)
-public @interface UniqueRecipe {
+@Constraint(validatedBy = NotSameTimesValidator.class)
+public @interface NotSameTimes {
 
-    String message() default "Recipe name must be unique";
+    String message() default "Les temps de préparation et de cuisson doivent être différents";
 
     Class<?>[] groups() default {};
 

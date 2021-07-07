@@ -2,12 +2,12 @@ package fr.formation.recipes.dtos;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class StepDto {
+public class StepCreateDto {
 
-    @NotEmpty
+    @NotBlank
     @Size(min = 1, max = 255)
     private String text;
 
@@ -15,7 +15,7 @@ public class StepDto {
     @Max(20)
     private int stepOrder;
 
-    public StepDto() {
+    public StepCreateDto() {
 	//
     }
 
@@ -32,6 +32,6 @@ public class StepDto {
     }
 
     public void setStepOrder(int value) {
-	this.stepOrder = value;
+	stepOrder = value;
     }
 }

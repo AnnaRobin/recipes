@@ -10,10 +10,12 @@ import javax.validation.Payload;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = UniqueRecipeValidator.class)
-public @interface UniqueRecipe {
+@Constraint(validatedBy = IncrementalStepOrdersValidator.class)
+public @interface IncrementalStepOrders {
 
-    String message() default "Recipe name must be unique";
+    int from() default 1;
+
+    String message() default "Les numéros d'étapes doivent se suivre du min au max";
 
     Class<?>[] groups() default {};
 

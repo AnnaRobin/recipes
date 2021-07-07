@@ -10,13 +10,16 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import fr.formation.recipes.Difficulty;
+import fr.formation.recipes.validation.IncrementalStepOrders;
+import fr.formation.recipes.validation.NotSameTimes;
 import fr.formation.recipes.validation.UniqueRecipe;
 
+@NotSameTimes
 public class RecipeCreateDto {
 
-    @NotBlank
-    @Size(min = 5, max = 255)
     @UniqueRecipe
+    @Size(min = 3, max = 255)
+    @NotBlank
     private String name;
 
     @Min(1)
@@ -34,7 +37,7 @@ public class RecipeCreateDto {
     @NotNull
     private Difficulty difficulty;
 
-    // @NotBlank
+    @NotBlank
     @Size(min = 7, max = 2500)
     private String imageUrl;
 
@@ -45,7 +48,10 @@ public class RecipeCreateDto {
 
     @NotNull
     @Size(min = 1, max = 20)
-    private List<@Valid StepDto> steps;
+    @IncrementalStepOrders
+    private List<@Valid StepCreateDto> steps;
+    // @Valid
+    // private StepCreateDto step;
 
     public RecipeCreateDto() {
 	//
@@ -107,11 +113,11 @@ public class RecipeCreateDto {
 	this.ingredients = ingredients;
     }
 
-    public List<StepDto> getSteps() {
+    public List<StepCreateDto> getSteps() {
 	return steps;
     }
 
-    public void setSteps(List<StepDto> steps) {
+    public void setSteps(List<StepCreateDto> steps) {
 	this.steps = steps;
     }
 }
